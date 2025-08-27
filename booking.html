@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="Logo" class="logo"></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="booking.html">Booking</a>
+<a href="pricing.html">Pricing</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Book Your Appointment</h1>
+<form onsubmit="sendToWhatsApp(event)">
+    <input type="text" placeholder="Name" id="name" required>
+    <input type="datetime-local" id="date" required>
+    <input type="text" placeholder="Service Type" id="service" required>
+    <input type="text" placeholder="WhatsApp Number" id="phone" required>
+    <textarea placeholder="Notes or preferences" id="notes"></textarea>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    var name = document.getElementById('name').value;
+    var date = document.getElementById('date').value;
+    var service = document.getElementById('service').value;
+    var phone = document.getElementById('phone').value;
+    var notes = document.getElementById('notes').value;
+
+    var message = `Name: ${name}%0ADate: ${date}%0AService: ${service}%0AWhatsApp: ${phone}%0ANotes: ${notes}`;
+
+    var whatsappURL = "https://wa.me/916289877941?text=" + message;
+
+    window.open(whatsappURL, '_blank');
+}
+</script>
+
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Sonam's Makeover</p>
+    </footer>
+
+<div class="offer-float-btn" onclick="document.getElementById('offerModal').style.display='block'">
+    🎁 Offer
+</div>
+
+<div id="offerModal" class="offer-modal" onclick="this.style.display='none'">
+    <img src="offer.jpg" alt="Durga Puja Offer">
+</div>
+
+</body>
+</html>
